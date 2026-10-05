@@ -1,0 +1,76 @@
+import React, { useEffect, useRef } from "react";
+import { Animated, Modal, Platform, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Colors } from "@/constants/colors";
+import { AlertProps } from "./types";
+
+// Alerta da WEB.
+// O Alert do React Native não aparece no navegador, então desenhamos um cartão próprio
+// por cima da tela. Ele fecha sozinho depois de 6 segundos ou ao clicar no "✕".
+const AlertWeb: React.FC<AlertProps> = ({ title, message, visible, onClose, type = "info" }) => {
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    if (visible) {
+      // useNativeDriver: false porque o navegador não tem o "driver nativo" de animação.
+      Animated.timing(fadeAnim, { toValue: 1, duration: 300, useNativeDriver: false }).start();
+
+      const timer = setTimeout(onClose, 6000);
+      return () => clearTimeout(timer);
+    }
+    fadeAnim.setValue(0);
+  }, [visible, fadeAnim, onClose]);
+
+  // Fundo, borda e texto de acordo com o tipo (error, success, warning, info).
+  const colors = Colors.semantic[type];
+
+  return (
+    <Modal transparent visible={visible} onRequestClose={onClose} animationType="none">
+      <View style={styles.overlay}>
+        <Animated.View
+          style={[
+            styles.alertContainer,
+            { opacity: fadeAnim, backgroundColor: colors.bg, borderLeftColor: colors.border },
+          ]}
+        >
+          <View style={styles.content}>
+            <Text style={[styles.title, { color: colors.text }]}>{title}</Text>
+            <Text style={[styles.message, { color: colors.text }]}>{message}</Text>
+          </View>
+          <TouchableOpacity onPress={onClose} style={styles.closeButton}>
+            <Text style={[styles.closeText, { color: colors.text }]}>✕</Text>
+          </TouchableOpacity>
+        </Animated.View>
+      </View>
+    </Modal>
+  );
+};
+
+const styles = StyleSheet.create({
+  overlay: {
+    flex: 1,
+    backgroundColor: Colors.overlay,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 20,
+  },
+  alertContainer: {
+    width: "100%",
+    maxWidth: 400,
+    padding: 20,
+    borderRadius: 12,
+    flexDirection: "row",
+    alignItems: "flex-start",
+    borderLeftWidth: 6,
+    ...Platform.select({
+      web: { boxShadow: `0px 8px 24px ${Colors.shadow}` },
+      default: { elevation: 8 },
+    }),
+  },
+  content: { flex: 1, marginRight: 10 },
+  title: { fontWeight: "bold", fontSize: 18, marginBottom: 6 },
+  message: { fontSize: 15, lineHeight: 20 },
+  closeButton: { padding: 4 },
+  closeText: { fontSize: 20, fontWeight: "bold" },
+});
+
+export default AlertWeb;
