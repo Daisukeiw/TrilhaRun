@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Svg, { Circle, Line, Path, Text as SvgText } from "react-native-svg";
-import { LocationPoint } from "@/types/activity";
+import { LocationPoint } from "@/@types/activity";
 import { Trilha } from "@/constants/colors";
 
 // Tamanho do desenho em unidades do SVG. O viewBox estica o desenho para o tamanho real do cartão.

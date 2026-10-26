@@ -6,7 +6,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { ACTIVITY_TYPES } from "@/constants/activityTypes";
 import { useActivity } from "@/context/ActivityContext";
 import { useAuth } from "@/context/AuthContext";
-import { ActivityType } from "@/types/activity";
+import { ActivityType } from "@/@types/activity";
 import { DistanceCard, GpsBadge } from "@/components/trilha/Dashboard";
 import { LiveMap } from "@/components/trilha/LiveMap";
 import { TrilhaHeader, Avatar } from "@/components/trilha/TrilhaHeader";

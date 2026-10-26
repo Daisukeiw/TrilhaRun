@@ -1,7 +1,7 @@
 import React from "react";
 import { Text } from "react-native";
 import { Colors } from "@/constants/colors";
-import { LocationPoint } from "@/types/activity";
+import { LocationPoint } from "@/@types/activity";
 
 // Versão WEB: não existe mapa, só um aviso.
 // (Esta tela nem aparece na Web, mas o arquivo precisa existir para o build não quebrar.)

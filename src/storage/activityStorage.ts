@@ -1,5 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { Activity } from "@/types/activity";
+import { Activity } from "@/@types/activity";
 
 const ACTIVITIES_KEY = "@meu_percurso:activities";
 

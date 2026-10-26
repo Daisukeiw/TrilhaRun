@@ -2,7 +2,7 @@ import React from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { Colors } from "@/constants/colors";
 import { getActivityLabel } from "@/constants/activityTypes";
-import { Activity } from "@/types/activity";
+import { Activity } from "@/@types/activity";
 import { formatDistance } from "@/utils/distance";
 import { formatDateTime, formatTime } from "@/utils/formatTime";
 import { getMetricValue } from "@/utils/metrics";

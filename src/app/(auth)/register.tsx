@@ -18,7 +18,8 @@ import { PasswordStrength } from "@/components/trilha/PasswordStrength";
 import { PrimaryButton } from "@/components/trilha/PrimaryButton";
 import { TrilhaHeader } from "@/components/trilha/TrilhaHeader";
 import { Trilha } from "@/constants/colors";
-import { MIN_PASSWORD, useRegisterForm } from "@/hooks/useRegisterForm";
+import { useRegisterForm } from "@/hooks/useRegisterForm";
+import { MIN_PASSWORD } from "@/services/authService";
 
 // Cadastro do APLICATIVO (celular). A versão do navegador está em register.web.tsx.
 export default function Register() {

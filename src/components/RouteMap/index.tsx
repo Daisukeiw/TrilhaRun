@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import MapView, { Marker, Polyline } from "react-native-maps";
 import { Colors } from "@/constants/colors";
-import { LocationPoint } from "@/types/activity";
+import { LocationPoint } from "@/@types/activity";
 import { getRegionFromRoute } from "@/utils/mapRegion";
 
 // Versão MOBILE do mapa. Na Web o Expo usa o arquivo index.web.tsx desta pasta,

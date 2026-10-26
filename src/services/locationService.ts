@@ -1,5 +1,5 @@
 import * as Location from "expo-location";
-import { LocationPoint } from "@/types/activity";
+import { LocationPoint } from "@/@types/activity";
 
 // Ignora leituras muito imprecisas (ex.: GPS ainda "esquentando").
 const MAX_ACCURACY_METERS = 50;

@@ -75,7 +75,7 @@ export const Field = forwardRef<TextInput, Props>(function Field(
 });
 
 // No navegador, remove o contorno padrão do <input>: o destaque fica na caixa inteira.
-const webInputReset = isWeb ? ({ outlineStyle: "none" } as TextStyle) : null;
+const webInputReset: TextStyle | null = isWeb ? { outlineWidth: 0 } : null;
 
 const styles = StyleSheet.create({
   wrap: { marginBottom: 14 },

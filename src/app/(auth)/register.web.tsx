@@ -8,7 +8,8 @@ import { Field } from "@/components/trilha/Field";
 import { PasswordStrength } from "@/components/trilha/PasswordStrength";
 import { PrimaryButton } from "@/components/trilha/PrimaryButton";
 import { Trilha } from "@/constants/colors";
-import { MIN_PASSWORD, useRegisterForm } from "@/hooks/useRegisterForm";
+import { useRegisterForm } from "@/hooks/useRegisterForm";
+import { MIN_PASSWORD } from "@/services/authService";
 
 // Cadastro do SITE (navegador). A versão do celular está em register.tsx.
 // O Expo Router escolhe este arquivo automaticamente na Web por causa do sufixo ".web".

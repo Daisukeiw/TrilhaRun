@@ -1,4 +1,4 @@
-import { ActivityType } from "@/types/activity";
+import { ActivityType } from "@/@types/activity";
 
 // Tipos de atividade e o nome em português de cada um (botões da home e cartões).
 export const ACTIVITY_TYPES: { value: ActivityType; label: string }[] = [

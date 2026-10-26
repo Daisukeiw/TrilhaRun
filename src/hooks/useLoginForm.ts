@@ -2,9 +2,11 @@ import { useState } from "react";
 import { Platform } from "react-native";
 import { router } from "expo-router";
 import { useAuth } from "@/context/AuthContext";
+import { validateLogin } from "@/services/authService";
 import { useAlertState } from "./useAlertState";
 
-// Lógica do formulário de login. As telas (mobile e web) só desenham a interface.
+// ESTADO e FLUXO da tela de login (celular e web usam o mesmo hook).
+// Guarda os campos, o carregamento e o alerta; as regras ficam no authService.
 export function useLoginForm() {
   const { signIn } = useAuth();
   const { alertProps, showAlert } = useAlertState();
@@ -16,14 +18,14 @@ export function useLoginForm() {
   async function submit() {
     if (loading) return;
 
-    if (!name.trim() || !senha.trim()) {
-      showAlert("Campos obrigatórios", "Preencha o usuário e a senha para continuar.", "warning");
+    const invalid = validateLogin(name, senha);
+    if (invalid) {
+      showAlert(invalid.title, invalid.message, "warning");
       return;
     }
 
     setLoading(true);
-    // Valida via API (AuthContext.signIn): a sessão é o cookie devolvido pelo servidor.
-    const result = await signIn(name.trim(), senha);
+    const result = await signIn(name, senha);
     setLoading(false);
 
     if (result.success) {

@@ -1,4 +1,4 @@
-import { Activity, ActivityType } from "@/types/activity";
+import { Activity, ActivityType } from "@/@types/activity";
 
 // km/h
 export function calculateAverageSpeed(

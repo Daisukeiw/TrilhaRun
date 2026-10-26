@@ -6,7 +6,7 @@ import { ActivityCard } from "@/components/ActivityCard";
 import { Header } from "@/components/header";
 import { Colors } from "@/constants/colors";
 import { getActivities } from "@/storage/activityStorage";
-import { Activity } from "@/types/activity";
+import { Activity } from "@/@types/activity";
 
 // HISTÓRICO: lista as atividades salvas no aparelho. Tocar em uma abre os detalhes.
 export default function HistoryScreen() {

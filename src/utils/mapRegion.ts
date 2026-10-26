@@ -1,5 +1,5 @@
 import type { Region } from "react-native-maps";
-import { LocationPoint } from "@/types/activity";
+import { LocationPoint } from "@/@types/activity";
 
 // Calcula o "quadro" do mapa que enquadra todo o percurso.
 export function getRegionFromRoute(route: LocationPoint[]): Region {

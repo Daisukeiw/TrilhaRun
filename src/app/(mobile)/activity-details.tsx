@@ -9,7 +9,7 @@ import { StatCard } from "@/components/StatCard";
 import { getActivityLabel } from "@/constants/activityTypes";
 import { Colors } from "@/constants/colors";
 import { deleteActivity, getActivityById } from "@/storage/activityStorage";
-import { Activity } from "@/types/activity";
+import { Activity } from "@/@types/activity";
 import { formatDistance } from "@/utils/distance";
 import { formatDateTime, formatTime } from "@/utils/formatTime";
 import { getMetricLabel, getMetricValue } from "@/utils/metrics";

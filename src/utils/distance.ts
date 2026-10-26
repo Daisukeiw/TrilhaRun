@@ -1,4 +1,4 @@
-import { LocationPoint } from "@/types/activity";
+import { LocationPoint } from "@/@types/activity";
 
 const EARTH_RADIUS_METERS = 6371000;
 

@@ -13,7 +13,7 @@ import {
   startLocationTracking,
   stopLocationTracking,
 } from "@/services/locationService";
-import { Activity, ActivityType, LocationPoint } from "@/types/activity";
+import { Activity, ActivityType, LocationPoint } from "@/@types/activity";
 import { calculateDistance, calculateTotalDistance } from "@/utils/distance";
 import { calculateAveragePace, calculateAverageSpeed } from "@/utils/metrics";
 
